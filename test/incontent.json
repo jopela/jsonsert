@@ -1,0 +1,12 @@
+{
+    "General Information" : {
+        "introduction": {
+            "en" : {
+                "text": "<h1>gen info</h1><p>super gen info</p>",
+                "source" : "http://google.com",
+                "title": "Introduction"
+            }
+        }
+    }
+}
+
