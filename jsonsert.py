@@ -27,15 +27,15 @@ def main():
     editorial_content = json.load(args.incontent)
     guide_content = json.load(args.inguide)
 
-    ec_merge(editorial_content, guide_content)
-
+    new_guide = ec_merge(editorial_content, guide_content)
+    encoded_guide = json.dumps(new_guide)
+    print(encoded_guide)
     return
 
 def ec_merge(editorial_content, guide_content):
     """ takes the editorial content and merge it with the guide_content. """
-    print("EC:",editorial_content)
-    print("GC:",guide_content)
-    return
+    guide_content['Cities'][0]['articles'] = editorial_content
+    return guide_content
 
 if __name__ == '__main__':
     main()
