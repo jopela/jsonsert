@@ -15,10 +15,24 @@ def main():
             nargs = '?',
             default = sys.stdin)
 
+    parser.add_argument(
+            'outfile',
+            help='output json guide file',
+            type = argparse.FileType('wr'))
+
     args = parser.parse_args()
 
-    guide = json.load(args.infile)
+    # read the editorial content.
+    ec = json.load(args.infile)
+
+    # insert it in the guide.
+    print(guide)
     return
+
+def ec_insert(ec, guide):
+
+    # read the json guide into a data structure.
+    # replace the
 
 
 if __name__ == '__main__':
