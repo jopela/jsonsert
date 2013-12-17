@@ -6,7 +6,8 @@ import sys
 
 def main():
 
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description="insert editorial content"\
+            " into an mtrip travel guide.")
     parser.add_argument(
             'incontent',
             help='input file from which to pick json content to be inserted.'\
