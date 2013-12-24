@@ -33,6 +33,21 @@ def main():
     print(encoded_guide)
     return
 
+def jsonsert(content_string, guide_path):
+    """ takes the editorial content as a string and prints it into the
+    guide. """
+
+    content = json.loads(content_string)
+    guide = None
+    with open(guide_path) as guide_file:
+        guide = json.load(guide_file)
+
+    guide['Cities'][0]['articles'] = content
+    with open(guide_path,'w') as guide_file:
+        json.dump(guide,guide_file)
+
+    return
+
 def ec_merge(editorial_content, guide_content):
     """ takes the editorial content and merge it with the guide_content. """
     guide_content['Cities'][0]['articles'] = editorial_content
