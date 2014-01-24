@@ -38,7 +38,7 @@ def jsonsert(content_string, guide_path):
     """ takes the editorial content as a string and prints it into the
     guide. """
 
-    content = json.loads(content_string, object_pairs_hook=collections.OrderedDict)
+    content = json.loads(content_string)
     guide = None
     with open(guide_path) as guide_file:
         guide = json.load(guide_file)
