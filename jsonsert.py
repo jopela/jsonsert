@@ -35,8 +35,10 @@ def main():
     return
 
 def jsonsert(content_string, guide_path):
-    """ takes the editorial content as a string and prints it into the
-    guide. """
+    """
+    takes the editorial content as a string and prints it into the
+    guide.
+    """
 
     content = json.loads(content_string, object_pairs_hook=collections.OrderedDict)
     guide = None
@@ -49,8 +51,33 @@ def jsonsert(content_string, guide_path):
 
     return
 
+def imagesert(guidefilename, filename, url):
+    """
+    inserts the image property into the guide.
+    """
+
+    guide = None
+    with open(guidefilename, 'r') as guide_file:
+        guide = json.load(guide_file)
+
+    if not guide:
+        return True
+
+    content = {"url":url, "file":filename}
+    try:
+        guide['Cities'][0]['image'] = content
+    except KeyError:
+        return True
+
+    with open(guidefilename, 'w') as guide_file:
+        json.dump(guide, guide_file)
+
+    return False
+
 def ec_merge(editorial_content, guide_content):
-    """ takes the editorial content and merge it with the guide_content. """
+    """
+    takes the editorial content and merge it with the guide_content.
+    """
     guide_content['Cities'][0]['articles'] = editorial_content
     return guide_content
 
